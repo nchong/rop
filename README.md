@@ -14,4 +14,20 @@ We are going to try to follow this tutorial:
 
 4. Clone this repo
 
-    $ git clone
+    $ git clone git@github.com:nchong/rop.git
+
+5. Get the python exploit development assistance for gdb
+   
+    $ git clone https://github.com/longld/peda.git ~/peda
+    $ echo "source ~/peda/peda.py" >> ~/.gdbinit
+
+6. Turn off ASLR
+
+    $ su
+    $ echo 0 > /proc/sys/kernel/randomize_va_space
+    $ exit
+
+7. Compile and run classic.c
+
+    $ gcc -fno-stack-protector -z execstack classic.c -o classic
+    $ ./classic
